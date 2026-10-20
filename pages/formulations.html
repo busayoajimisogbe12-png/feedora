@@ -1,0 +1,127 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Formulations | Feedora</title>
+
+  <link rel="stylesheet" href="../css/dashboard.css">
+  <link rel="stylesheet" href="../css/calculator.css">
+</head>
+
+<body>
+  <div class="sidebar-backdrop" id="sidebarBackdrop"></div>
+
+  <aside class="sidebar" id="sidebar">
+    <a href="../index.html" class="logo">
+      <span class="logo-mark">F</span>
+      <span>Feedora</span>
+    </a>
+
+    <p class="sidebar-label">WORKSPACE</p>
+
+    <nav class="sidebar-nav" aria-label="Main navigation">
+      <a href="./dashboard.html" class="nav-link">
+        <span class="nav-icon">▦</span>
+        <span>Overview</span>
+      </a>
+
+      <a href="./calculator.html" class="nav-link">
+        <span class="nav-icon">＋</span>
+        <span>Feed Calculator</span>
+      </a>
+
+      <a href="./formulations.html" class="nav-link active"
+         aria-current="page">
+        <span class="nav-icon">▤</span>
+        <span>My Formulations</span>
+      </a>
+
+      <a href="./history.html" class="nav-link">
+        <span class="nav-icon">◷</span>
+        <span>Calculation History</span>
+      </a>
+    </nav>
+
+    <p class="sidebar-label secondary-label">PREFERENCES</p>
+
+    <nav class="sidebar-nav" aria-label="Preferences">
+      <a href="./settings.html" class="nav-link">
+        <span class="nav-icon">⚙</span>
+        <span>Settings</span>
+      </a>
+    </nav>
+
+    <div class="sidebar-bottom">
+      <div class="sidebar-user">
+        <div class="user-avatar" id="userAvatar">F</div>
+
+        <div class="user-details">
+          <p id="sidebarUserName">Feedora User</p>
+          <span id="sidebarUserEmail">Loading account...</span>
+        </div>
+      </div>
+
+      <button id="logoutBtn" class="logout-btn" type="button">
+        <span class="nav-icon">↪</span>
+        <span>Log out</span>
+      </button>
+    </div>
+  </aside>
+
+  <main class="main-area">
+    <header class="topbar">
+      <button
+        class="menu-toggle"
+        id="menuToggle"
+        type="button"
+        aria-label="Open navigation menu"
+        aria-expanded="false"
+      >
+        ☰
+      </button>
+
+      <div class="topbar-heading">
+        <p class="eyebrow">YOUR FEED LIBRARY</p>
+        <h1>My Formulations</h1>
+      </div>
+    </header>
+
+    <div class="dashboard-content">
+      <section class="calculator-intro">
+        <p class="eyebrow">SAVED RECIPES</p>
+        <h2>Your feed formulations</h2>
+        <p>
+          View and manage the feed formulations you have saved.
+          Your saved recipes are available whenever you sign in.
+        </p>
+      </section>
+
+      <section class="calculator-panel">
+        <div class="section-heading">
+          <div>
+            <h2>Saved formulations</h2>
+            <p id="formulationCount">Loading your formulations...</p>
+          </div>
+
+          <a href="./calculator.html" class="calculate-btn">
+            + New formulation
+          </a>
+        </div>
+
+        <p
+          id="formulationsMessage"
+          class="calculator-message"
+          aria-live="polite"
+        ></p>
+
+        <div id="formulationsList"></div>
+      </section>
+    </div>
+  </main>
+
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <script type="module" src="../js/formulations.js"></script>
+</body>
+</html>

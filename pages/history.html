@@ -1,0 +1,155 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculation History | Feedora</title>
+
+    <link rel="stylesheet" href="../css/dashboard.css">
+    <link rel="stylesheet" href="../css/calculator.css">
+</head>
+
+<body>
+    <div class="sidebar-backdrop" id="sidebarBackdrop"></div>
+
+    <aside class="sidebar" id="sidebar">
+        <a href="../index.html" class="logo">
+            <span class="logo-mark">F</span>
+            <span>Feedora</span>
+        </a>
+
+        <p class="sidebar-label">WORKSPACE</p>
+
+        <nav class="sidebar-nav" aria-label="Main navigation">
+            <a href="./dashboard.html" class="nav-link">
+                <span class="nav-icon">▦</span>
+                <span>Overview</span>
+            </a>
+
+            <a href="./calculator.html" class="nav-link">
+                <span class="nav-icon">＋</span>
+                <span>Feed Calculator</span>
+            </a>
+
+            <a href="./formulations.html" class="nav-link">
+                <span class="nav-icon">▤</span>
+                <span>My Formulations</span>
+            </a>
+
+            <a href="./history.html" class="nav-link active" aria-current="page">
+                <span class="nav-icon">◷</span>
+                <span>Calculation History</span>
+            </a>
+        </nav>
+
+        <p class="sidebar-label secondary-label">PREFERENCES</p>
+
+        <nav class="sidebar-nav" aria-label="Preferences">
+            <a href="./settings.html" class="nav-link">
+                <span class="nav-icon">⚙</span>
+                <span>Settings</span>
+            </a>
+        </nav>
+
+        <div class="sidebar-bottom">
+            <div class="sidebar-user">
+                <div class="user-avatar" id="userAvatar">F</div>
+
+                <div class="user-details">
+                    <p id="sidebarUserName">Feedora User</p>
+                    <span id="sidebarUserEmail">Loading account...</span>
+                </div>
+            </div>
+
+            <button id="logoutBtn" class="logout-btn" type="button">
+                <span class="nav-icon">↪</span>
+                <span>Log out</span>
+            </button>
+        </div>
+    </aside>
+
+    <main class="main-area">
+        <header class="topbar">
+            <button
+                class="menu-toggle"
+                id="menuToggle"
+                type="button"
+                aria-label="Open navigation menu"
+                aria-expanded="false"
+            >
+                ☰
+            </button>
+
+            <div class="topbar-heading">
+                <p class="eyebrow">YOUR ACTIVITY</p>
+                <h1>Calculation History</h1>
+            </div>
+        </header>
+
+        <div class="dashboard-content">
+            <section class="calculator-intro">
+                <p class="eyebrow">PAST CALCULATIONS</p>
+                <h2>Your calculation history</h2>
+                <p>
+                    Review your previous poultry feed calculations,
+                    including batch sizes and production costs.
+                </p>
+            </section>
+
+            <section class="calculator-panel">
+                <div class="section-heading">
+                    <div>
+                        <h2>Recent calculations</h2>
+                        <p id="historyCount">Loading your history...</p>
+                    </div>
+
+                    <a href="./calculator.html" class="calculate-btn">
+                        + New calculation
+                    </a>
+                </div>
+
+                <p
+                    id="historyMessage"
+                    class="calculator-message"
+                    aria-live="polite"
+                ></p>
+
+                
+                <div class="history-filters">
+                    <div class="history-search">
+                        <label for="historySearch">Search calculations</label>
+                        <input
+                            type="search"
+                            id="historySearch"
+                            placeholder="Search by calculation name..."
+                        >
+                    </div>
+
+                    <div class="history-date-filter">
+                        <label for="historyDate">Filter by date</label>
+                        <input
+                            type="date"
+                            id="historyDate"
+                        >
+                    </div>
+
+                    <button
+                        type="button"
+                        id="clearHistoryFilters"
+                        class="clear-history-filters"
+                    >
+                        Clear filters
+                    </button>
+                </div>
+
+                <div id="historyList"></div>
+
+            </section>
+        </div>
+    </main>
+
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script type="module" src="../js/history.js"></script>
+</body>
+</html>

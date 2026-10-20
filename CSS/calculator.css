@@ -1,0 +1,779 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+/* ==========================================
+   FEEDORA CALCULATOR PAGE
+   Calculator styles only.
+   Shared layout belongs in dashboard.css.
+========================================== */
+
+.calculator-intro {
+  margin-bottom: 28px;
+  padding: 30px;
+  background: linear-gradient(135deg, #183D2B, #28563D);
+  border-radius: 18px;
+  color: #F4F0E6;
+  box-sizing: border-box;
+}
+
+.calculator-intro .eyebrow,
+.eyebrow {
+  color: #D9A441;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  margin-bottom: 12px;
+}
+
+.calculator-intro h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(25px, 3vw, 34px);
+  font-weight: 500;
+  margin-bottom: 12px;
+}
+
+.calculator-intro > p:last-child {
+  max-width: 650px;
+  line-height: 1.8;
+  color: #E4E9E2;
+  font-size: 14px;
+}
+
+/* Calculator panels */
+
+.calculator-panel {
+  width: 100%;
+  min-width: 0;
+  box-sizing: border-box;
+  background: #FFFFFF;
+  border: 1px solid #E4E8E2;
+  border-radius: 16px;
+  padding: 26px;
+  margin-bottom: 24px;
+  box-shadow: 0 5px 20px rgba(24, 61, 43, 0.04);
+}
+
+
+.section-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+.section-heading h2 {
+  font-family: 'Playfair Display', serif;
+  color: #183D2B;
+  font-size: 23px;
+  font-weight: 500;
+  margin-bottom: 7px;
+}
+
+.section-heading p {
+  color: #738076;
+  font-size: 13px;
+  line-height: 1.7;
+}
+
+/* Batch input */
+
+.batch-field {
+  max-width: 320px;
+}
+
+.batch-field label {
+  display: block;
+  color: #263B30;
+  font-weight: 600;
+  font-size: 13px;
+  margin-bottom: 10px;
+}
+
+.batch-field input,
+.ingredient-table input {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 12px;
+  background: #FAFBF8;
+  border: 1px solid #DDE4DC;
+  border-radius: 8px;
+  color: #183D2B;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 13px;
+  outline: none;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.batch-field input:focus,
+.ingredient-table input:focus {
+  border-color: #D9A441;
+  box-shadow: 0 0 0 3px rgba(217, 164, 65, 0.15);
+}
+
+/* Buttons */
+
+#addIngredientBtn {
+  padding: 11px 16px;
+  border: 1px solid #D9A441;
+  border-radius: 8px;
+  background: #FFF9E9;
+  color: #183D2B;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 13px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+
+#addIngredientBtn:hover {
+  background: #D9A441;
+}
+
+.calculate-btn {
+  padding: 14px 22px;
+  margin-top: 20px;
+  background: #183D2B;
+  color: #FFFFFF;
+  border: none;
+  border-radius: 9px;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.2s;
+}
+
+.calculate-btn:hover {
+  background: #28563D;
+  transform: translateY(-1px);
+}
+
+.remove-ingredient {
+  width: 32px;
+  height: 32px;
+  border: 1px solid #F0D5D0;
+  border-radius: 7px;
+  background: #FFF5F3;
+  color: #A33E30;
+  font-size: 21px;
+  cursor: pointer;
+}
+
+.remove-ingredient:hover {
+  background: #FBE4DF;
+}
+
+/* Ingredient table */
+
+.ingredient-table-wrap {
+  width: 100%;
+  min-width: 0;
+  overflow-x: auto;
+}
+
+.ingredient-table {
+  width: 100%;
+  min-width: 760px;
+  border-collapse: collapse;
+  text-align: left;
+}
+
+.ingredient-table th {
+  padding: 14px 12px;
+  background: #F4F0E6;
+  color: #526256;
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  white-space: nowrap;
+}
+
+.ingredient-table th:first-child {
+  border-radius: 8px 0 0 8px;
+}
+
+.ingredient-table th:last-child {
+  border-radius: 0 8px 8px 0;
+}
+
+.ingredient-table td {
+  padding: 12px 8px;
+  border-bottom: 1px solid #EDF0EA;
+  color: #263B30;
+  font-size: 13px;
+}
+
+.ingredient-table td:nth-child(4),
+.ingredient-table td:nth-child(5) {
+  white-space: nowrap;
+  font-weight: 600;
+}
+
+.percentage-status {
+  margin-top: 18px;
+  font-size: 13px;
+  font-weight: 700;
+  color: #183D2B;
+}
+
+.calculator-message {
+  margin-top: 12px;
+  color: #A33E30;
+  font-size: 13px;
+  line-height: 1.6;
+}
+
+/* Results */
+
+.results-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.result-card {
+  min-width: 0;
+  padding: 22px;
+  border: 1px solid #E4E8E2;
+  border-radius: 12px;
+  background: #FAFBF8;
+}
+
+.result-card p {
+  color: #738076;
+  font-size: 12px;
+  margin-bottom: 12px;
+}
+
+.result-card h3 {
+  font-family: 'Playfair Display', serif;
+  color: #183D2B;
+  font-size: clamp(19px, 2vw, 27px);
+  font-weight: 500;
+  overflow-wrap: anywhere;
+}
+
+.results-note {
+  margin-top: 20px;
+  color: #738076;
+  font-size: 12px;
+  line-height: 1.8;
+}
+
+/* Keep calculator content spaced away from the sidebar */
+.main-area {
+    min-width: 0;
+    box-sizing: border-box;
+}
+
+.main-area > .topbar {
+    padding-left: 5%;
+    padding-right: 5%;
+}
+
+.main-area > .dashboard-content {
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+    padding: 34px 5% 24px;
+}
+
+
+/* Save formulation section */
+.save-formulation-actions {
+  margin-top: 24px;
+  max-width: 520px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.save-formulation-actions label {
+  color: var(--text-color, #183D2B);
+  font-size: 0.95rem;
+  font-weight: 600;
+}
+
+.save-formulation-actions input {
+  width: 100%;
+  padding: 14px 16px;
+  border: 1px solid #d6d9d2;
+  border-radius: 10px;
+  background: #fff;
+  color: #183D2B;
+  font: inherit;
+  font-size: 0.95rem;
+  outline: none;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.save-formulation-actions input::placeholder {
+  color: #8b928b;
+}
+
+.save-formulation-actions input:focus {
+  border-color: #D9A441;
+  box-shadow: 0 0 0 3px rgba(217, 164, 65, 0.18);
+}
+
+.save-formulation-actions .calculate-btn {
+  width: 100%;
+  margin-top: 6px;
+}
+
+.save-formulation-actions .calculator-message {
+  margin: 4px 0 0;
+  line-height: 1.5;
+}
+
+/* Support dark mode if the dashboard uses a dark theme class */
+body.dark-mode .save-formulation-actions label {
+  color: #F4F0E6;
+}
+
+body.dark-mode .save-formulation-actions input {
+  background: #202820;
+  color: #F4F0E6;
+  border-color: #465246;
+}
+
+body.dark-mode .save-formulation-actions input::placeholder {
+  color: #b0b8ae;
+}
+
+
+/* Keep the green introduction card inside the content area */
+.calculator-intro {
+    box-sizing: border-box;
+    width: 100%;
+    border-radius: 18px;
+}
+
+@media (max-width: 750px) {
+    .main-area > .topbar {
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+
+    .main-area > .dashboard-content {
+        padding: 24px 20px;
+    }
+}
+
+
+/* Responsive calculator content only */
+
+@media (max-width: 750px) {
+  .calculator-intro {
+    padding: 23px;
+  }
+
+  .calculator-panel {
+    padding: 16px;
+  }
+
+  .section-heading {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  #addIngredientBtn {
+    width: 100%;
+  }
+
+  .results-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .result-card {
+    padding: 18px;
+  }
+
+  .calculate-btn {
+    width: 100%;
+  }
+}
+
+/* ==============================
+   MY FORMULATIONS PAGE
+============================== */
+
+#formulationsList {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 320px), 1fr));
+    gap: 24px;
+    margin-top: 24px;
+    align-items: start;
+}
+
+.formulation-card {
+    min-width: 0;
+    padding: 26px;
+    background: #ffffff;
+    border: 1px solid #e4e8e2;
+    border-radius: 16px;
+    box-shadow: 0 5px 18px rgba(24, 61, 43, 0.06);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.formulation-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 26px rgba(24, 61, 43, 0.11);
+}
+
+.formulation-card h3 {
+    margin: 0 0 8px;
+    color: #183D2B;
+    font-size: 1.25rem;
+    line-height: 1.5;
+    overflow-wrap: anywhere;
+}
+
+.formulation-date {
+    margin: 0 0 22px;
+    color: #718075;
+    font-size: 0.85rem;
+}
+
+.formulation-details {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 12px;
+    padding: 18px;
+    margin-bottom: 24px;
+    background: #f4f0e6;
+    border-radius: 12px;
+}
+
+.formulation-details p {
+    margin: 0;
+    color: #34483b;
+    font-size: 0.93rem;
+    line-height: 1.6;
+    overflow-wrap: anywhere;
+}
+
+.formulation-details p:last-child {
+    padding-top: 12px;
+    border-top: 1px solid #ded8c9;
+    color: #183D2B;
+    font-weight: 700;
+}
+
+.formulation-card h4 {
+    margin: 0 0 14px;
+    color: #183D2B;
+    font-size: 1rem;
+}
+
+.formulation-ingredients {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.formulation-ingredients li {
+    padding: 13px 14px;
+    background: #fafbf8;
+    border: 1px solid #edf0e9;
+    border-radius: 9px;
+    color: #455449;
+    font-size: 0.88rem;
+    line-height: 1.7;
+    overflow-wrap: anywhere;
+    word-break: normal;
+}
+
+#formulationsMessage {
+    margin-top: 16px;
+    line-height: 1.7;
+}
+
+/* Responsive spacing */
+@media (max-width: 600px) {
+    #formulationsList {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 16px;
+        margin-top: 18px;
+    }
+
+    .formulation-card {
+        padding: 19px;
+        border-radius: 13px;
+    }
+
+    .formulation-card h3 {
+        font-size: 1.1rem;
+    }
+
+    .formulation-details {
+        padding: 15px;
+        gap: 10px;
+    }
+
+    .formulation-ingredients li {
+        padding: 12px;
+        font-size: 0.85rem;
+    }
+}
+
+/* Dark mode */
+body.dark-mode .formulation-card {
+    background: #202c24;
+    border-color: #39483d;
+    box-shadow: 0 5px 18px rgba(0, 0, 0, 0.12);
+}
+
+body.dark-mode .formulation-card h3,
+body.dark-mode .formulation-card h4 {
+    color: #f4f0e6;
+}
+
+body.dark-mode .formulation-date {
+    color: #b3c0b5;
+}
+
+body.dark-mode .formulation-details {
+    background: #2b392f;
+}
+
+body.dark-mode .formulation-details p {
+    color: #e3e9e2;
+}
+
+body.dark-mode .formulation-details p:last-child {
+    color: #e4bd65;
+    border-color: #465447;
+}
+
+body.dark-mode .formulation-ingredients li {
+    background: #26332a;
+    border-color: #3b493e;
+    color: #e3e9e2;
+}
+
+
+/* Delete formulation button */
+.delete-formulation-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 22px;
+    padding: 11px 20px;
+    min-width: 100px;
+    background: transparent;
+    color: #b42318;
+    border: 1px solid #e7b7b3;
+    border-radius: 8px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.2s ease, color 0.2s ease;
+}
+
+.delete-formulation-btn:hover {
+    background: #b42318;
+    color: #ffffff;
+}
+
+.delete-formulation-btn:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+body.dark-mode .delete-formulation-btn {
+    color: #ffaaa3;
+    border-color: #75433f;
+}
+
+body.dark-mode .delete-formulation-btn:hover {
+    background: #b42318;
+    color: #ffffff;
+    border-color: #b42318;
+}
+
+
+/* Edit formulation button */
+.edit-formulation-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 22px;
+    margin-right: 10px;
+    padding: 11px 20px;
+    min-width: 110px;
+    background: #183D2B;
+    color: #F4F0E6;
+    border: 1px solid #183D2B;
+    border-radius: 8px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.2s ease, transform 0.2s ease;
+}
+
+.edit-formulation-btn:hover {
+    background: #28583e;
+    transform: translateY(-1px);
+}
+
+.edit-formulation-btn:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    transform: none;
+}
+
+body.dark-mode .edit-formulation-btn {
+    background: #D9A441;
+    color: #183D2B;
+    border-color: #D9A441;
+}
+
+body.dark-mode .edit-formulation-btn:hover {
+    background: #e6b957;
+    border-color: #e6b957;
+}
+
+
+/* Space between formulation action buttons */
+.edit-formulation-btn {
+    margin-right: 12px;
+}
+
+.delete-formulation-btn {
+    margin-right: 10px;
+}
+
+
+/* View formulation details button */
+.view-formulation-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 22px;
+    margin-bottom: 12px;
+    padding: 11px 20px;
+    min-width: 130px;
+    background: #F4F0E6;
+    color: #183D2B;
+    border: 1px solid #D9A441;
+    border-radius: 8px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.2s ease, transform 0.2s ease;
+}
+
+.view-formulation-btn:hover {
+    background: #D9A441;
+    transform: translateY(-1px);
+}
+
+.view-formulation-btn:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    transform: none;
+}
+
+body.dark-mode .view-formulation-btn {
+    background: #2B392F;
+    color: #F4F0E6;
+    border-color: #D9A441;
+}
+
+body.dark-mode .view-formulation-btn:hover {
+    background: #D9A441;
+    color: #183D2B;
+}
+
+
+/* Calculation history details table */
+.history-ingredients-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 16px;
+  font-size: 14px;
+  background: #F4F0E6;
+  color: #183D2B;
+}
+
+.history-ingredients-table th,
+.history-ingredients-table td {
+  padding: 12px 10px;
+  border: 1px solid #ddd5c3;
+  text-align: left;
+}
+
+.history-ingredients-table th {
+  background: #183D2B;
+  color: #F4F0E6;
+  font-weight: 600;
+}
+
+.history-ingredients-table tbody tr:nth-child(even) {
+  background: #ebe5d7;
+}
+
+.history-ingredients-table tbody tr:hover {
+  background: #e1d8c5;
+}
+
+/* Keep the popup readable on smaller screens */
+.swal2-popup {
+  max-width: 95vw !important;
+}
+
+.swal2-html-container {
+  overflow-x: auto !important;
+}
+
+.history-ingredients-table {
+  min-width: 650px;
+}
+
+/* View Details button */
+.view-history-btn {
+  background: #183D2B;
+  color: #F4F0E6;
+  border: 1px solid #D9A441;
+  border-radius: 6px;
+  padding: 10px 16px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: background 0.2s ease;
+}
+
+.view-history-btn:hover {
+  background: #24553d;
+}
+
+.view-history-btn:focus-visible {
+  outline: 2px solid #D9A441;
+  outline-offset: 3px;
+}
+
+@media (max-width: 600px) {
+  .swal2-title {
+    font-size: 20px !important;
+  }
+
+  .swal2-html-container {
+    font-size: 13px !important;
+  }
+
+  .history-ingredients-table th,
+  .history-ingredients-table td {
+    padding: 9px 8px;
+  }
+}
+
+
+

@@ -1,0 +1,19 @@
+
+# Private environment files
+.env
+.env.*
+!.env.example
+
+# Firebase private credentials
+*service-account*.json
+*firebase-adminsdk*.json
+
+# Dependencies and generated files
+node_modules/
+dist/
+build/
+.firebase/
+
+# Operating system files
+.DS_Store
+Thumbs.db

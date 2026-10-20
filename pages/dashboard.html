@@ -1,0 +1,212 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Feedora | Dashboard</title>
+    <link rel="stylesheet" href="../css/dashboard.css">
+</head>
+<body>
+
+    <div class="dashboard-layout">
+
+        <!-- Mobile menu backdrop -->
+        <div class="sidebar-backdrop" id="sidebarBackdrop"></div>
+
+        <!-- Sidebar -->
+        <aside class="sidebar" id="sidebar">
+            <a href="../index.html" class="logo">
+                <span class="logo-mark">F</span>
+                <span>Feedora</span>
+            </a>
+
+            <p class="sidebar-label">WORKSPACE</p>
+
+            <nav class="sidebar-nav" aria-label="Main navigation">
+                <a href="./dashboard.html" class="nav-link active"
+                   aria-current="page">
+                    <span class="nav-icon">▦</span>
+                    <span>Overview</span>
+                </a>
+
+                <a href="./calculator.html" class="nav-link">
+                    <span class="nav-icon">＋</span>
+                    <span>Feed Calculator</span>
+                </a>
+
+                <a href="./formulations.html" class="nav-link">
+                    <span class="nav-icon">▤</span>
+                    <span>My Formulations</span>
+                </a>
+
+                <a href="./history.html" class="nav-link">
+                    <span class="nav-icon">◷</span>
+                    <span>Calculation History</span>
+                </a>
+            </nav>
+
+            <p class="sidebar-label secondary-label">PREFERENCES</p>
+
+            <nav class="sidebar-nav" aria-label="Preferences">
+                <a href="./settings.html" class="nav-link">
+                    <span class="nav-icon">⚙</span>
+                    <span>Settings</span>
+                </a>
+            </nav>
+
+            <div class="sidebar-bottom">
+                <div class="sidebar-user">
+                    <div class="user-avatar" id="userAvatar">F</div>
+                    <div class="user-details">
+                        <p id="sidebarUserName">Feedora User</p>
+                        <span id="sidebarUserEmail">Loading account...</span>
+                    </div>
+                </div>
+
+                <button id="logoutBtn" class="logout-btn" type="button">
+                    <span class="nav-icon">↪</span>
+                    <span>Log out</span>
+                </button>
+            </div>
+        </aside>
+
+        <!-- Main content -->
+        <main class="main-area">
+
+            <header class="topbar">
+                <button
+                    type="button"
+                    class="menu-toggle"
+                    id="menuToggle"
+                    aria-label="Open navigation menu"
+                    aria-controls="sidebar"
+                    aria-expanded="false">
+                    ☰
+                </button>
+
+                <div class="topbar-heading">
+                    <p class="eyebrow">YOUR WORKSPACE</p>
+                    <h1>Overview</h1>
+                </div>
+
+                <div class="topbar-account">
+                    <span class="status-dot"></span>
+                    <span>Account active</span>
+                </div>
+            </header>
+
+            <div class="dashboard-content">
+
+                <section class="welcome-panel">
+                    <div>
+                        <p class="welcome-tag">WELCOME TO FEEDORA</p>
+                        <h2 id="welcomeTitle">Welcome back!</h2>
+                        <p>
+                            Manage your poultry feed formulations
+                            and costs from one place.
+                        </p>
+                    </div>
+
+                    <a href="./calculator.html" class="primary-action">
+                        + New Calculation
+                    </a>
+                </section>
+
+                <section class="overview-section">
+                    <div class="section-heading">
+                        <div>
+                            <h2>Your Overview</h2>
+                            <p>A summary of your feed calculation workspace.</p>
+                        </div>
+                    </div>
+
+                    <div class="overview-cards">
+                        <article class="overview-card">
+                            <div class="overview-card-top">
+                                <span class="overview-icon">▤</span>
+                                <span class="overview-chip">Saved</span>
+                            </div>
+                            <p class="overview-label">My Formulations</p>
+                            <p class="overview-number" id="formulationCount">—</p>
+                            <p class="overview-description">
+                                Your saved feed recipes
+                            </p>
+                        </article>
+
+                        <article class="overview-card">
+                            <div class="overview-card-top">
+                                <span class="overview-icon">◷</span>
+                                <span class="overview-chip">Records</span>
+                            </div>
+                            <p class="overview-label">Calculation History</p>
+                            <p class="overview-number" id="historyCount">—</p>
+                            <p class="overview-description">
+                                Your previous calculations
+                            </p>
+                        </article>
+                    </div>
+                </section>
+
+                <section class="quick-actions-section">
+                    <div class="section-heading">
+                        <div>
+                            <h2>Quick Actions</h2>
+                            <p>Get straight to the tools you need.</p>
+                        </div>
+                    </div>
+
+                    <div class="quick-action-grid">
+                        <article class="quick-action-card">
+                            <div class="action-icon">＋</div>
+                            <h3>Calculate Feed</h3>
+                            <p>
+                                Work out ingredient quantities and
+                                estimated feed costs.
+                            </p>
+                            <a href="./calculator.html" class="text-link">
+                                Open calculator →
+                            </a>
+                        </article>
+
+                        <article class="quick-action-card">
+                            <div class="action-icon">▤</div>
+                            <h3>Saved Formulations</h3>
+                            <p>
+                                Find and manage recipes you've saved.
+                            </p>
+                            <a href="./formulations.html" class="text-link">
+                                View formulations →
+                            </a>
+                        </article>
+
+                        <article class="quick-action-card">
+                            <div class="action-icon">◷</div>
+                            <h3>Recent Calculations</h3>
+                            <p>
+                                Review the calculations you've completed.
+                            </p>
+                            <a href="./history.html" class="text-link">
+                                View history →
+                            </a>
+                        </article>
+                    </div>
+                </section>
+
+                <p id="dashboardMessage" class="dashboard-message"
+                   role="status" aria-live="polite"></p>
+
+                <footer class="dashboard-footer">
+                    <p>Feedora · Poultry Feed Formulation &amp; Cost Calculator</p>
+                </footer>
+
+            </div>
+        </main>
+    </div>
+
+    <script type="module" src="../js/dashboard.js"></script>
+
+</body>
+</html>
+
+

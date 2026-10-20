@@ -1,0 +1,236 @@
+<!doctype html>
+<html lang="en" data-theme="light">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Create Account | Feedora</title>
+    <meta
+      name="description"
+      content="Create your Feedora account for poultry feed planning."
+    />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="../style.css" />
+    <link rel="stylesheet" href="../css/auth.css" />
+
+    <script src="../js/theme.js" defer></script>
+    <script type="module" src="../js/auth.js"></script>
+  </head>
+
+  <body class="auth-page">
+    <main class="auth-layout">
+      <!-- Welcome panel -->
+      <section class="auth-welcome">
+        <a class="brand auth-brand" href="../index.html">
+          <span class="brand-icon" aria-hidden="true">✳</span>
+          <span>Feedora</span>
+        </a>
+
+        <div class="welcome-content">
+          <span class="eyebrow">YOUR FEED PLANNING WORKSPACE</span>
+
+          <h1>
+            Start planning.
+            <span>Grow with confidence.</span>
+          </h1>
+
+          <p>
+            Create your Feedora account to organize your ingredients, calculate
+            feed costs, and keep your formulations together.
+          </p>
+
+          <div class="welcome-feature">
+            <span class="feature-check" aria-hidden="true">✓</span>
+            <span>Keep your feed calculations organized</span>
+          </div>
+
+          <div class="welcome-feature">
+            <span class="feature-check" aria-hidden="true">✓</span>
+            <span>Manage your ingredient price records</span>
+          </div>
+
+          <div class="welcome-feature">
+            <span class="feature-check" aria-hidden="true">✓</span>
+            <span>Build your personal planning workspace</span>
+          </div>
+        </div>
+
+        <p class="welcome-footer">Practical tools for poultry feed planning.</p>
+      </section>
+
+      <!-- Registration form panel -->
+      <section class="auth-form-panel">
+        <div class="auth-topbar">
+          <a class="back-home" href="../index.html">
+            <span aria-hidden="true">←</span> Back to home
+          </a>
+
+          <button
+            class="theme-toggle"
+            id="themeToggle"
+            type="button"
+            aria-label="Switch to dark mode"
+            title="Toggle theme"
+          >
+            <span id="themeIcon" aria-hidden="true">☾</span>
+          </button>
+        </div>
+
+        <div class="auth-form-wrap">
+          <div class="auth-heading">
+            <span class="eyebrow">GET STARTED</span>
+            <h2>Create your account</h2>
+            <p>Enter your details to set up your Feedora workspace.</p>
+          </div>
+
+          <form id="registerForm" class="auth-form">
+            <div class="form-field">
+              <label for="fullName">Full name</label>
+              <input
+                id="fullName"
+                name="fullName"
+                type="text"
+                placeholder="Enter your full name"
+                autocomplete="name"
+                required
+              />
+            </div>
+
+            <div class="form-field">
+              <label for="registerEmail">Email address</label>
+              <input
+                id="registerEmail"
+                name="email"
+                type="email"
+                placeholder="you@example.com"
+                autocomplete="email"
+                required
+              />
+            </div>
+
+            <div class="form-field">
+              <label for="registerPassword">Password</label>
+
+              <div class="password-input-wrap">
+                <input
+                  id="registerPassword"
+                  name="password"
+                  type="password"
+                  placeholder="Create a password"
+                  autocomplete="new-password"
+                  minlength="8"
+                  required
+                />
+
+                <button
+                  type="button"
+                  class="password-toggle"
+                  data-password-target="registerPassword"
+                  aria-label="Show password"
+                  aria-pressed="false"
+                  title="Show password"
+                >
+                  <svg
+                    class="eye-icon"
+                    viewBox="0 0 24 24"
+                    width="21"
+                    height="21"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="1.8"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    aria-hidden="true"
+                  >
+                    <path
+                      d="M2 12s3.6-7 10-7 10 7 10 7-3.6 7-10 7S2 12 2 12Z"
+                    />
+                    <circle cx="12" cy="12" r="3" />
+                  </svg>
+                </button>
+              </div>
+            </div>
+
+            <div class="form-field">
+              <label for="confirmPassword">Confirm password</label>
+
+              <div class="password-input-wrap">
+                <input
+                  id="confirmPassword"
+                  name="confirmPassword"
+                  type="password"
+                  placeholder="Enter your password again"
+                  autocomplete="new-password"
+                  minlength="8"
+                  required
+                />
+
+                <button
+                  type="button"
+                  class="password-toggle"
+                  data-password-target="confirmPassword"
+                  aria-label="Show password"
+                  aria-pressed="false"
+                  title="Show password"
+                >
+                  <svg
+                    class="eye-icon"
+                    viewBox="0 0 24 24"
+                    width="21"
+                    height="21"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="1.8"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    aria-hidden="true"
+                  >
+                    <path
+                      d="M2 12s3.6-7 10-7 10 7 10 7-3.6 7-10 7S2 12 2 12Z"
+                    />
+                    <circle cx="12" cy="12" r="3" />
+                  </svg>
+                </button>
+              </div>
+            </div>
+
+            <p
+              class="form-message"
+              id="registerMessage"
+              role="status"
+              aria-live="polite"
+            ></p>
+
+            <button class="auth-submit" type="submit">
+              Create Account
+              <span class="submit-arrow" aria-hidden="true">→</span>
+            </button>
+          </form>
+
+          <button type="button" class="google-btn" id="googleRegisterBtn">
+            <img
+              src="https://www.gstatic.com/firebasejs/ui/2.0.0/images/auth/google.svg"
+              alt="" class="google-icon"/>
+            Continue with Google
+          </button>
+
+          <p class="auth-switch">
+            Already have an account?
+            <a href="login.html">Sign in</a>
+          </p>
+
+          <p class="auth-legal">
+            Keep your account credentials private and secure.
+          </p>
+        </div>
+      </section>
+    </main>
+  </body>
+</html>

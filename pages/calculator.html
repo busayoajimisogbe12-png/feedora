@@ -1,0 +1,268 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Feed Calculator | Feedora</title>
+
+  <link rel="stylesheet" href="../css/dashboard.css">
+  <link rel="stylesheet" href="../css/calculator.css">
+</head>
+
+<body>
+  <div class="sidebar-backdrop" id="sidebarBackdrop"></div>
+
+  
+<aside class="sidebar" id="sidebar">
+    <a href="../index.html" class="logo">
+        <span class="logo-mark">F</span>
+        <span>Feedora</span>
+    </a>
+
+    <p class="sidebar-label">WORKSPACE</p>
+
+    <nav class="sidebar-nav" aria-label="Main navigation">
+        <a href="./dashboard.html" class="nav-link">
+            <span class="nav-icon">▦</span>
+            <span>Overview</span>
+        </a>
+
+        <a href="./calculator.html" class="nav-link active"
+           aria-current="page">
+            <span class="nav-icon">＋</span>
+            <span>Feed Calculator</span>
+        </a>
+
+        <a href="./formulations.html" class="nav-link">
+            <span class="nav-icon">▤</span>
+            <span>My Formulations</span>
+        </a>
+
+        <a href="./history.html" class="nav-link">
+            <span class="nav-icon">◷</span>
+            <span>Calculation History</span>
+        </a>
+    </nav>
+
+    <p class="sidebar-label secondary-label">PREFERENCES</p>
+
+    <nav class="sidebar-nav" aria-label="Preferences">
+        <a href="./settings.html" class="nav-link">
+            <span class="nav-icon">⚙</span>
+            <span>Settings</span>
+        </a>
+    </nav>
+
+    <div class="sidebar-bottom">
+        <div class="sidebar-user">
+            <div class="user-avatar" id="userAvatar">F</div>
+            <div class="user-details">
+                <p id="sidebarUserName">Feedora User</p>
+                <span id="sidebarUserEmail">Loading account...</span>
+            </div>
+        </div>
+
+        <button id="logoutBtn" class="logout-btn" type="button">
+            <span class="nav-icon">↪</span>
+            <span>Log out</span>
+        </button>
+    </div>
+</aside>
+
+
+  <main class="main-area">
+    <header class="topbar">
+        <button
+            class="menu-toggle"
+            id="menuToggle"
+            type="button"
+            aria-label="Open navigation menu"
+            aria-expanded="false"
+        >
+            ☰
+        </button>
+
+        <div class="topbar-heading">
+            <p class="eyebrow">POULTRY NUTRITION</p>
+            <h1>Feed Calculator</h1>
+        </div>
+    </header>
+
+    <div class="dashboard-content">
+
+    <section class="calculator-intro">
+      <p class="eyebrow">FORMULATION WORKSPACE</p>
+      <h2>Create a feed formulation</h2>
+      <p>
+        Enter your batch size, ingredients, inclusion percentages,
+        and ingredient prices to calculate quantities and estimated cost.
+      </p>
+    </section>
+
+    <section class="calculator-panel">
+      <div class="section-heading">
+        <div>
+          <h2>Batch details</h2>
+          <p>Choose the total amount of feed you want to prepare.</p>
+        </div>
+      </div>
+
+      <div class="batch-field">
+        <label for="batchSize">Batch size (kg)</label>
+        <input
+          type="number"
+          id="batchSize"
+          min="0.01"
+          step="any"
+          value="100"
+          placeholder="e.g. 100"
+        >
+      </div>
+    </section>
+
+    <section class="calculator-panel">
+      <div class="section-heading">
+        <div>
+          <h2>Ingredients</h2>
+          <p>
+            Enter each ingredient's percentage and price per kilogram.
+          </p>
+        </div>
+
+        <button id="addIngredientBtn" type="button">
+          + Add ingredient
+        </button>
+      </div>
+
+      <div class="ingredient-table-wrap">
+        <table class="ingredient-table">
+          <thead>
+            <tr>
+              <th scope="col">Ingredient</th>
+              <th scope="col">Inclusion (%)</th>
+              <th scope="col">Price per kg (₦)</th>
+              <th scope="col">Quantity (kg)</th>
+              <th scope="col">Cost (₦)</th>
+              <th scope="col">Action</th>
+            </tr>
+          </thead>
+
+          <tbody id="ingredientRows">
+            <tr class="ingredient-row">
+              <td>
+                <input
+                  type="text"
+                  class="ingredient-name"
+                  placeholder="e.g. Maize"
+                  aria-label="Ingredient name"
+                >
+              </td>
+              <td>
+                <input
+                  type="number"
+                  class="ingredient-percentage"
+                  min="0"
+                  max="100"
+                  step="any"
+                  placeholder="0"
+                  aria-label="Inclusion percentage"
+                >
+              </td>
+              <td>
+                <input
+                  type="number"
+                  class="ingredient-price"
+                  min="0"
+                  step="any"
+                  placeholder="0"
+                  aria-label="Price per kilogram"
+                >
+              </td>
+              <td class="ingredient-quantity">—</td>
+              <td class="ingredient-cost">—</td>
+              <td>
+                <button
+                  class="remove-ingredient"
+                  type="button"
+                  aria-label="Remove ingredient"
+                >×</button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <p id="percentageStatus" class="percentage-status" aria-live="polite">
+        Total inclusion: 0%
+      </p>
+
+      <p id="calculatorMessage" class="calculator-message" aria-live="polite"></p>
+
+      <button id="calculateBtn" class="calculate-btn" type="button">
+        Calculate formulation
+      </button>
+    </section>
+
+    <section class="calculator-panel results-panel">
+      <div class="section-heading">
+        <div>
+          <h2>Calculation results</h2>
+          <p>Your estimated ingredient quantities and feed cost.</p>
+        </div>
+      </div>
+
+      <div class="results-grid">
+        <article class="result-card">
+          <p>Total batch</p>
+          <h3 id="resultBatch">— kg</h3>
+        </article>
+
+        <article class="result-card">
+          <p>Total ingredient cost</p>
+          <h3 id="resultCost">₦—</h3>
+        </article>
+
+        <article class="result-card">
+          <p>Cost per kg</p>
+          <h3 id="resultCostPerKg">₦—</h3>
+        </article>
+      </div>
+
+      <p class="results-note">
+        These are mathematical estimates based on the values you enter.
+        They do not independently verify whether the recipe meets poultry
+        nutritional requirements.
+      </p>
+      
+        <div class="save-formulation-actions">
+        <label for="formulationName">Formulation name</label>
+        <input
+            type="text"
+            id="formulationName"
+            placeholder="e.g. Broiler Starter Feed"
+            maxlength="100"
+        >
+
+        <button
+            id="saveFormulationBtn"
+            class="calculate-btn"
+            type="button"
+        >
+            Save Formulation
+        </button>
+
+        <p
+            id="saveFormulationMessage"
+            class="calculator-message"
+            aria-live="polite"
+        ></p>
+        </div>
+
+    </section>
+    </div>
+  </main>
+
+  <script type="module" src="../js/calculator.js"></script>
+</body>
+</html>
