@@ -14,12 +14,15 @@ import {
 
 import { db } from "./firebase-config.js";
 
+
 import {
-  doc,
-  getDoc,
-  setDoc,
-  serverTimestamp
+    doc,
+    getDoc,
+    setDoc,
+    updateDoc,
+    serverTimestamp
 } from "https://www.gstatic.com/firebasejs/12.4.0/firebase-firestore.js";
+
 
 
 
@@ -37,6 +40,25 @@ async function saveUserProfile(user) {
     });
   }
 }
+
+async function recordUserLogin(user) {
+    try {
+        console.log("Login tracking started for:", user.uid);
+
+        const userRef = doc(db, "users", user.uid);
+
+        await updateDoc(userRef, {
+            lastLoginAt: serverTimestamp()
+        });
+
+        console.log("Login timestamp saved successfully.");
+
+    } catch (error) {
+        console.error("Login tracking failed:", error);
+    }
+}
+
+
 
 
 
@@ -184,6 +206,8 @@ if (!userSnapshot.exists()) {
 
 const role = userSnapshot.data().role;
 
+await recordUserLogin(user);
+
 console.log("Logged-in email:", user.email);
 console.log("Firestore role:", role);
 console.log("User UID:", user.uid);
@@ -268,6 +292,9 @@ async function handleGoogleSignIn(button) {
     }
 
   const role = userSnapshot.data().role;
+  
+  await recordUserLogin(result.user);
+
 
     console.log("Logged-in email:", result.user.email);
     console.log("Firestore role:", role);

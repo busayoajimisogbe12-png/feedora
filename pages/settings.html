@@ -1,0 +1,266 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Settings | Feedora</title>
+
+    <link rel="stylesheet" href="../css/dashboard.css">
+
+    <style>
+        .settings-content {
+            padding: 24px;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .settings-heading {
+            margin-bottom: 24px;
+        }
+
+        .settings-heading h1 {
+            margin-bottom: 8px;
+        }
+
+        .settings-heading p {
+            opacity: 0.75;
+        }
+
+        .settings-section {
+            padding: 24px;
+            margin-bottom: 20px;
+            border: 1px solid #d9d9d9;
+            border-radius: 14px;
+            background: var(--card-bg, #ffffff);
+        }
+
+        .settings-section h2 {
+            margin-bottom: 8px;
+            font-size: 1.15rem;
+        }
+
+        .settings-section > p {
+            margin-bottom: 20px;
+            opacity: 0.75;
+        }
+
+        .settings-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 16px;
+            padding: 16px 0;
+            border-top: 1px solid #e5e5e5;
+        }
+
+        .settings-row h3 {
+            font-size: 1rem;
+            margin-bottom: 6px;
+        }
+
+        .settings-row p {
+            font-size: 0.9rem;
+            opacity: 0.75;
+        }
+
+        .settings-action {
+            padding: 10px 16px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            background: #183D2B;
+            color: #ffffff;
+            font: inherit;
+        }
+
+        .settings-action:focus-visible {
+            outline: 3px solid #D9A441;
+            outline-offset: 3px;
+        }
+
+        @media (max-width: 600px) {
+            .settings-content {
+                padding: 16px;
+            }
+
+            .settings-section {
+                padding: 18px;
+            }
+
+            .settings-row {
+                align-items: flex-start;
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="dashboard-layout">
+
+        <!-- Mobile sidebar backdrop -->
+        <div id="sidebarBackdrop" class="sidebar-backdrop"></div>
+
+       
+        <aside class="sidebar" id="sidebar">
+            <a href="../index.html" class="logo">
+                <span class="logo-mark">F</span>
+                <span>Feedora</span>
+            </a>
+
+            <p class="sidebar-label">WORKSPACE</p>
+
+            <nav class="sidebar-nav" aria-label="Main navigation">
+                <a href="./dashboard.html" class="nav-link">
+                    <span class="nav-icon">▦</span>
+                    <span>Overview</span>
+                </a>
+
+                <a href="./calculator.html" class="nav-link">
+                    <span class="nav-icon">＋</span>
+                    <span>Feed Calculator</span>
+                </a>
+
+                <a href="./formulations.html" class="nav-link">
+                    <span class="nav-icon">▤</span>
+                    <span>My Formulations</span>
+                </a>
+
+                <a href="./history.html" class="nav-link">
+                    <span class="nav-icon">◷</span>
+                    <span>Calculation History</span>
+                </a>
+            </nav>
+
+            <p class="sidebar-label secondary-label">PREFERENCES</p>
+
+            <nav class="sidebar-nav" aria-label="Preferences">
+                <a href="./settings.html"
+                class="nav-link active"
+                aria-current="page">
+                    <span class="nav-icon">⚙</span>
+                    <span>Settings</span>
+                </a>
+            </nav>
+
+            <div class="sidebar-bottom">
+                <div class="sidebar-user">
+                    <div class="user-avatar" id="userAvatar">F</div>
+
+                    <div class="user-details">
+                        <p id="sidebarUserName">Feedora User</p>
+                        <span id="sidebarUserEmail">Loading account...</span>
+                    </div>
+                </div>
+
+                <button id="logoutBtn" class="logout-btn" type="button">
+                    <span class="nav-icon">↪</span>
+                    <span>Log out</span>
+                </button>
+            </div>
+        </aside>
+
+
+        <!-- Main content -->
+        <main class="main-area">
+
+            <header class="topbar">
+                <button
+                    type="button"
+                    class="menu-toggle"
+                    id="menuToggle"
+                    aria-label="Open navigation menu"
+                    aria-controls="sidebar"
+                    aria-expanded="false">
+                    ☰
+                </button>
+
+                <div class="topbar-heading">
+                    <h1>Settings</h1>
+                    <p>Manage your Feedora preferences.</p>
+                </div>
+            </header>
+
+            <div class="settings-content">
+
+                <div class="settings-heading">
+                    <h1>Account Settings</h1>
+                    <p>Personalize your Feedora experience.</p>
+                </div>
+
+                <!-- Profile settings -->
+                <section class="settings-section">
+                    <h2>Profile Information</h2>
+                    <p>View the account currently signed in to Feedora.</p>
+
+                    <div class="settings-row">
+                        <div>
+                            <h3>Full Name</h3>
+                            <p id="settingsUserName">Loading...</p>
+                        </div>
+                    </div>
+
+                    <div class="settings-row">
+                        <div>
+                            <h3>Email Address</h3>
+                            <p id="settingsUserEmail">Loading...</p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Appearance settings -->
+                <section class="settings-section">
+                    <h2>Appearance</h2>
+                    <p>Choose how Feedora looks on your device.</p>
+
+                    <div class="settings-row">
+                        <div>
+                            <h3>Light and Dark Mode</h3>
+                            <p>Switch between light and dark themes.</p>
+                        </div>
+
+                        <button
+                            type="button"
+                            class="settings-action"
+                            id="themeToggle">
+                            Toggle Theme
+                        </button>
+                    </div>
+                </section>
+
+                <!-- Account settings -->
+                <section class="settings-section">
+                    <h2>Account Security</h2>
+                    <p>Manage access to your account.</p>
+
+                    <div class="settings-row">
+                        <div>
+                            <h3>Password</h3>
+                            <p>
+                                If you use email and password,
+                                you can request a password reset.
+                            </p>
+                        </div>
+
+                        <button
+                            type="button"
+                            class="settings-action"
+                            id="resetPasswordBtn">
+                            Reset Password
+                        </button>
+                    </div>
+                </section>
+
+                <p id="settingsMessage" role="status"
+                   aria-live="polite"></p>
+
+            </div>
+        </main>
+    </div>
+
+    <script type="module" src="../js/theme.js"></script>
+<script type="module" src="../js/settings.js"></script>
+</body>
+</html>

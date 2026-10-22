@@ -1,15 +1,257 @@
-
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="light">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Feedora Admin Dashboard</title>
-</head>
-<body style="display: none;">
-  <h1>Feedora Admin Dashboard</h1>
-  <p>Admin access will be configured here.</p>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <script type="module" src="../js/admin.js"></script>
+    <title>Admin Dashboard | Feedora</title>
+
+    <link rel="stylesheet" href="../css/dashboard.css">
+</head>
+
+<body>
+    <div class="dashboard-layout">
+
+        <!-- Admin sidebar will go here -->
+         
+        <aside class="sidebar" id="sidebar">
+            <a href="../index.html" class="logo">
+                <span class="logo-mark">F</span>
+                <span>Feedora</span>
+            </a>
+
+            <p class="sidebar-label">ADMINISTRATION</p>
+
+            <nav class="sidebar-nav" aria-label="Admin navigation">
+                <a href="./admin-dashboard.html"
+                  class="nav-link active"
+                  aria-current="page">
+                    <span class="nav-icon">▦</span>
+                    <span>Overview</span>
+                </a>
+
+                <a href="#users" class="nav-link">
+                    <span class="nav-icon">♙</span>
+                    <span>Manage Users</span>
+                </a>
+
+                <a href="#calculations" class="nav-link">
+                    <span class="nav-icon">▤</span>
+                    <span>Calculation Activity</span>
+                </a>
+
+                <a href="#usage" class="nav-link">
+                    <span class="nav-icon">◷</span>
+                    <span>Usage Analytics</span>
+                </a>
+
+                <a href="#admin-settings" class="nav-link">
+                    <span class="nav-icon">⚙</span>
+                    <span>Settings</span>
+                </a>
+
+            </nav>
+
+            <div class="sidebar-bottom">
+                <div class="sidebar-user">
+                    <div class="user-avatar" id="userAvatar">A</div>
+
+                    <div class="user-details">
+                        <p id="sidebarUserName">Feedora Admin</p>
+                        <span id="sidebarUserEmail">Loading account...</span>
+                    </div>
+                </div>
+
+                <button id="logoutBtn" class="logout-btn" type="button">
+                    <span class="nav-icon">↪</span>
+                    <span>Log out</span>
+                </button>
+            </div>
+        </aside>
+        
+        <div class="sidebar-backdrop" id="sidebarBackdrop"></div>
+
+
+
+        <main class="main-area">
+            
+          <header class="topbar">
+              <div class="topbar-heading">
+                
+                <button
+                    type="button"
+                    class="menu-toggle"
+                    id="menuToggle"
+                    aria-label="Open navigation menu"
+                    aria-expanded="false"
+                >
+                    ☰
+                </button>
+
+                  <h1>Admin Dashboard</h1>
+                  <p>Manage and monitor your Feedora project.</p>
+              </div>
+
+              <button
+                  type="button"
+                  id="themeToggle"
+                  class="theme-toggle"
+                  aria-label="Switch theme"
+              >
+                  <span id="themeIcon">🌙</span>
+              </button>
+          </header>
+
+
+            <section class="dashboard-content" id="overview">
+                <div class="section-heading">
+                    <h2>Overview</h2>
+                    <p>Welcome to the Feedora administration area.</p>
+                </div>
+
+                <!-- Dashboard statistics will go here -->
+                 
+                <div class="overview-grid">
+
+                    <article class="overview-card">
+                        <div class="overview-icon">♙</div>
+                        <p class="overview-label">Registered Users</p>
+                        <h3 class="overview-number" id="totalUsers">0</h3>
+                        <p class="overview-description">Total accounts created</p>
+                    </article>
+
+                    <article class="overview-card">
+                        <div class="overview-icon">●</div>
+                        <p class="overview-label">Active Users</p>
+                        <h3 class="overview-number" id="activeUsers">0</h3>
+                        <p class="overview-description">Activity monitoring</p>
+                    </article>
+
+                    <article class="overview-card">
+                        <div class="overview-icon">▤</div>
+                        <p class="overview-label">Total Calculations</p>
+                        <h3 class="overview-number" id="totalCalculations">0</h3>
+                        <p class="overview-description">Calculations recorded</p>
+                    </article>
+
+                    <article class="overview-card">
+                        <div class="overview-icon">▣</div>
+                        <p class="overview-label">Saved Formulations</p>
+                        <h3 class="overview-number" id="totalFormulations">0</h3>
+                        <p class="overview-description">Formulations saved</p>
+                    </article>
+
+                </div>
+
+
+            </section>
+
+            
+            <!-- Manage Users Section -->
+            <section class="content-section" id="users">
+                <div class="section-heading">
+                    <div>
+                        <h2>Manage Users</h2>
+                        <input
+                            type="text"
+                            id="userSearch"
+                            placeholder="Search by name or email..."
+                            aria-label="Search users by name or email"
+                        >
+                        <p>View registered Feedora users and their account details.</p>
+                    </div>
+                </div>
+
+                <div class="table-container">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Full Name</th>
+                                <th>Email Address</th>
+                                <th>Role</th>
+                                <th>Date Registered</th>
+                            </tr>
+                        </thead>
+
+                        <tbody id="usersTableBody">
+                            <tr>
+                                <td colspan="4">Loading users...</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            
+            <!-- Calculation Activity Section -->
+           <section class="content-section" id="calculations">
+              <div class="section-heading">
+                  <div>
+                      <h2>Calculation Activity</h2>
+                      <p>View recent feed calculations saved by users.</p>
+                  </div>
+              </div>
+
+              <div class="table-container">
+                  <table>
+                      <thead>
+                          <tr>
+                              <th>User ID</th>
+                              <th>Feed Name</th>
+                              <th>Date Calculated</th>
+                          </tr>
+                      </thead>
+
+                      <tbody id="calculationsTableBody">
+                          <tr>
+                              <td colspan="3">Loading calculations...</td>
+                          </tr>
+                      </tbody>
+                  </table>
+              </div>
+           </section>
+
+          
+          <!-- Usage Analytics Section -->
+          <section class="content-section" id="usage">
+              <div class="section-heading">
+                  <div>
+                      <h2>Usage Analytics</h2>
+                      <p>Track daily feed calculation activity.</p>
+                  </div>
+              </div>
+
+              <div class="dashboard-card">
+                  <h3>Calculations by Day</h3>
+                  <div id="usageAnalytics" class="usage-analytics">
+                      Loading analytics...
+                  </div>
+              </div>
+          </section>
+
+          <!-- admin-settings -->
+          <section class="content-section" id="admin-settings">
+              <div class="section-heading">
+                  <div>
+                      <h2>Admin Settings</h2>
+                      <p>Manage your Feedora administrator preferences.</p>
+                  </div>
+              </div>
+
+              <div class="dashboard-card">
+                  <h3>Account Information</h3>
+                  <p>Administrator name: <span id="settingsAdminName">Loading...</span></p>
+                  <p>Email address: <span id="settingsAdminEmail">Loading...</span></p>
+              </div>
+          </section>
+
+        </main>
+
+    </div>
+
+    <script type="module" src="../js/admin.js"></script>    
+    <script src="../js/theme.js"></script>
+
 </body>
 </html>
+

@@ -394,8 +394,13 @@ saveFormulationBtn.addEventListener("click", async () => {
       createdAt: serverTimestamp()
     });
 
-    saveFormulationMessage.textContent =
-      "Formulation saved successfully!";
+    Swal.fire({
+      icon: "success",
+      title: "Formulation Saved!",
+      text: "Your feed formulation has been saved successfully.",
+      confirmButtonText: "Great!",
+      confirmButtonColor: "#183D2B"
+    });
 
     formulationNameInput.value = "";
   } catch (error) {

@@ -14,6 +14,43 @@
     --sidebar-width: 255px;
 }
 
+/* Dark theme */
+:root[data-theme="dark"] {
+    --green: #183D2B;
+    --cream: #F4F0E6;
+    --gold: #D9A441;
+    --gold-dark: #E6BD69;
+    --white: #202923;
+    --text: #F0F3EE;
+    --muted: #B3BEB5;
+    --border: #3B4940;
+    --surface: #151C17;
+}
+
+/* Keep dashboard cards and page backgrounds dark */
+:root[data-theme="dark"] .settings-section,
+:root[data-theme="dark"] .overview-card,
+:root[data-theme="dark"] .quick-action-card {
+    background: var(--white);
+    border-color: var(--border);
+}
+
+/* Keep headings readable in dark mode */
+:root[data-theme="dark"] .section-heading h2,
+:root[data-theme="dark"] .quick-action-card h3,
+:root[data-theme="dark"] .overview-number,
+:root[data-theme="dark"] .topbar-heading h1 {
+    color: var(--text);
+}
+
+/* Theme toggle button */
+:root[data-theme="dark"] .menu-toggle {
+    background: var(--white);
+    color: var(--text);
+    border-color: var(--border);
+}
+
+
 * {
     margin: 0;
     padding: 0;
@@ -642,3 +679,472 @@ button {
   }
 }
 
+
+/* Additional dark mode styles */
+:root[data-theme="dark"] body {
+    background-color: var(--surface);
+    color: var(--text);
+}
+
+:root[data-theme="dark"] .sidebar {
+    background-color: #111813;
+    border-color: var(--border);
+}
+
+:root[data-theme="dark"] .main-area,
+:root[data-theme="dark"] .dashboard-content {
+    background-color: var(--surface);
+    color: var(--text);
+}
+
+:root[data-theme="dark"] .topbar {
+    background-color: var(--surface);
+    border-color: var(--border);
+}
+
+:root[data-theme="dark"] .settings-section,
+:root[data-theme="dark"] .overview-card,
+:root[data-theme="dark"] .quick-action-card {
+    background-color: var(--white);
+    border-color: var(--border);
+    color: var(--text);
+}
+
+:root[data-theme="dark"] .settings-section p,
+:root[data-theme="dark"] .settings-section span,
+:root[data-theme="dark"] .settings-section label {
+    color: var(--text);
+}
+
+:root[data-theme="dark"] input,
+:root[data-theme="dark"] select,
+:root[data-theme="dark"] textarea {
+    background-color: var(--white);
+    color: var(--text);
+    border-color: var(--border);
+}
+
+:root[data-theme="dark"] input::placeholder,
+:root[data-theme="dark"] textarea::placeholder {
+    color: var(--muted);
+}
+
+
+/* Usage Analytics Bar Chart */
+.usage-analytics {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    margin-top: 20px;
+}
+
+.usage-analytics p {
+    position: relative;
+    padding: 12px 14px;
+    margin: 0;
+    border-radius: 8px;
+    background: #f4f0e6;
+    color: #183d2b;
+    font-size: 14px;
+    font-weight: 600;
+    overflow: hidden;
+    isolation: isolate;
+}
+
+.usage-analytics p::before {
+    content: "";
+    position: absolute;
+    inset: 0 auto 0 0;
+    width: var(--bar-width, 0%);
+    background: #d9a441;
+    opacity: 0.45;
+    z-index: -1;
+    border-radius: inherit;
+}
+
+html[data-theme="dark"] .usage-analytics p {
+    background: #26352d;
+    color: #f4f0e6;
+}
+
+html[data-theme="dark"] .usage-analytics p::before {
+    background: #d9a441;
+}
+
+
+/* Admin Dashboard Card Improvements */
+.dashboard-card {
+    border: 1px solid rgba(217, 164, 65, 0.2);
+    border-radius: 14px;
+    padding: 24px;
+    box-shadow: 0 4px 16px rgba(24, 61, 43, 0.06);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.dashboard-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 22px rgba(24, 61, 43, 0.12);
+}
+
+/* Improve section headings */
+.section-heading {
+    margin-bottom: 24px;
+}
+
+.section-heading h2 {
+    color: #183D2B;
+    font-size: 24px;
+    font-weight: 700;
+    margin-bottom: 8px;
+}
+
+.section-heading p {
+    color: #647067;
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+/* Dark mode */
+html[data-theme="dark"] .dashboard-card {
+    border-color: rgba(217, 164, 65, 0.25);
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+}
+
+html[data-theme="dark"] .section-heading h2 {
+    color: #F4F0E6;
+}
+
+html[data-theme="dark"] .section-heading p {
+    color: #B9C5BC;
+}
+
+
+/* Admin Dashboard Tables */
+.table-container {
+    width: 100%;
+    overflow-x: auto;
+    border-radius: 12px;
+    border: 1px solid #e2e7e2;
+    background: #ffffff;
+    margin-top: 18px;
+}
+
+.table-container table {
+    width: 100%;
+    border-collapse: collapse;
+    min-width: 600px;
+}
+
+.table-container th,
+.table-container td {
+    padding: 16px 18px;
+    text-align: left;
+    border-bottom: 1px solid #e8ece8;
+    font-size: 14px;
+}
+
+.table-container th {
+    background: #183D2B;
+    color: #F4F0E6;
+    font-weight: 600;
+    white-space: nowrap;
+}
+
+.table-container tbody tr {
+    transition: background 0.2s ease;
+}
+
+.table-container tbody tr:hover {
+    background: #f4f0e6;
+}
+
+.table-container tbody tr:last-child td {
+    border-bottom: none;
+}
+
+/* Dark mode tables */
+html[data-theme="dark"] .table-container {
+    background: #1e2923;
+    border-color: #39483e;
+}
+
+html[data-theme="dark"] .table-container td {
+    color: #F4F0E6;
+    border-bottom-color: #39483e;
+}
+
+html[data-theme="dark"] .table-container tbody tr:hover {
+    background: #2b3b30;
+}
+
+/* Smaller screens */
+@media (max-width: 768px) {
+    .table-container {
+        border-radius: 8px;
+    }
+
+    .table-container th,
+    .table-container td {
+        padding: 12px;
+        font-size: 13px;
+    }
+}
+
+
+/* Admin User Search */
+#userSearch {
+    width: 100%;
+    max-width: 380px;
+    padding: 13px 16px;
+    margin: 12px 0 18px;
+    border: 1px solid #d5ddd6;
+    border-radius: 10px;
+    background: #ffffff;
+    color: #183D2B;
+    font-family: inherit;
+    font-size: 14px;
+    outline: none;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+#userSearch::placeholder {
+    color: #879188;
+}
+
+#userSearch:focus {
+    border-color: #D9A441;
+    box-shadow: 0 0 0 3px rgba(217, 164, 65, 0.18);
+}
+
+/* Dark mode search */
+html[data-theme="dark"] #userSearch {
+    background: #1e2923;
+    color: #F4F0E6;
+    border-color: #39483e;
+}
+
+html[data-theme="dark"] #userSearch::placeholder {
+    color: #a8b5aa;
+}
+
+
+/* Admin Dashboard Responsive Improvements */
+@media (max-width: 768px) {
+    .main-area {
+        min-width: 0;
+        width: 100%;
+    }
+
+    .topbar {
+        gap: 12px;
+        padding: 16px;
+    }
+
+    .topbar-heading h1 {
+        font-size: 22px;
+    }
+
+    .topbar-heading p {
+        font-size: 13px;
+    }
+
+    .section-heading h2 {
+        font-size: 20px;
+    }
+
+    .dashboard-card {
+        padding: 18px;
+    }
+
+    #userSearch {
+        max-width: 100%;
+    }
+
+    .usage-analytics {
+        gap: 12px;
+    }
+}
+
+@media (max-width: 480px) {
+    .topbar-heading h1 {
+        font-size: 19px;
+    }
+
+    .dashboard-card {
+        padding: 14px;
+    }
+
+    .section-heading {
+        margin-bottom: 18px;
+    }
+
+    .usage-analytics p {
+        font-size: 12px;
+        padding: 11px;
+        overflow-wrap: anywhere;
+    }
+}
+
+
+/* Add breathing space to admin content headings */
+#users > .section-heading,
+#calculations > .section-heading,
+#usage > .section-heading {
+    padding-left: 16px;
+    padding-right: 16px;
+}
+
+@media (max-width: 480px) {
+    #users > .section-heading,
+    #calculations > .section-heading,
+    #usage > .section-heading {
+        padding-left: 12px;
+        padding-right: 12px;
+    }
+}
+
+
+/* Mobile navigation button */
+.menu-toggle {
+    display: none;
+    border: none;
+    background: transparent;
+    color: #183D2B;
+    font-size: 28px;
+    cursor: pointer;
+    padding: 6px;
+    line-height: 1;
+    flex-shrink: 0;
+}
+
+html[data-theme="dark"] .menu-toggle {
+    color: #F4F0E6;
+}
+
+@media (max-width: 768px) {
+    .menu-toggle {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .topbar {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+    }
+
+    .topbar-heading {
+        flex: 1;
+        min-width: 0;
+    }
+}
+
+
+/* Mobile Sidebar Open and Close */
+@media (max-width: 768px) {
+    .sidebar {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 260px;
+        height: 100vh;
+        height: 100dvh;
+        z-index: 1000;
+        transform: translateX(-100%);
+        transition: transform 0.3s ease;
+        overflow-y: auto;
+    }
+
+    .sidebar.active {
+        transform: translateX(0);
+    }
+
+    .main-area {
+        width: 100%;
+        margin-left: 0;
+    }
+}
+
+/* Keep the mobile admin topbar visible while scrolling */
+@media (max-width: 768px) {
+    .topbar {
+        position: sticky;
+        top: 0;
+        z-index: 900;
+        background: #F4F0E6;
+        padding: 14px 16px;
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+    html[data-theme="dark"] .topbar {
+        background: #183D2B;
+    }
+}
+
+/* Mobile sidebar backdrop */
+.sidebar-backdrop {
+    display: none;
+}
+
+@media (max-width: 768px) {
+    .sidebar-backdrop {
+        position: fixed;
+        inset: 0;
+        background: rgba(0, 0, 0, 0.45);
+        z-index: 950;
+        opacity: 0;
+        visibility: hidden;
+        transition: opacity 0.3s ease, visibility 0.3s ease;
+    }
+
+    .sidebar-backdrop.active {
+        display: block;
+        opacity: 1;
+        visibility: visible;
+    }
+
+    .sidebar {
+        z-index: 1000;
+    }
+}
+
+
+
+
+/* Dashboard cards in dark mode
+:root[data-theme="dark"] .overview-card,
+:root[data-theme="dark"] .quick-action-card {
+    background: #202923;
+    border-color: #3B4940;
+    color: #F0F3EE;
+}
+
+:root[data-theme="dark"] .section-heading h2,
+:root[data-theme="dark"] .quick-action-card h3,
+:root[data-theme="dark"] .overview-number {
+    color: #F0F3EE;
+}
+
+:root[data-theme="dark"] .section-heading p,
+:root[data-theme="dark"] .overview-label,
+:root[data-theme="dark"] .overview-description,
+:root[data-theme="dark"] .quick-action-card p {
+    color: #B3BEB5;
+}
+
+:root[data-theme="dark"] .overview-icon,
+:root[data-theme="dark"] .action-icon {
+    background: #303C33;
+    color: #E6BD69;
+}
+
+:root[data-theme="dark"] .overview-chip {
+    background: #293D2E;
+    color: #B9E2C2;
+}
+
+:root[data-theme="dark"] .quick-action-card:hover {
+    box-shadow: 0 8px 22px rgba(0, 0, 0, 0.25);
+} */

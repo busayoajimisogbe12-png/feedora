@@ -776,4 +776,220 @@ body.dark-mode .view-formulation-btn:hover {
 }
 
 
+/* Feedora Calculator dark mode */
+:root[data-theme="dark"] .calculator-panel {
+    background: #202923;
+    border-color: #3B4940;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.15);
+}
 
+:root[data-theme="dark"] .calculator-panel .section-heading h2 {
+    color: #F0F3EE;
+}
+
+:root[data-theme="dark"] .calculator-panel .section-heading p {
+    color: #B3BEB5;
+}
+
+:root[data-theme="dark"] .batch-field label,
+:root[data-theme="dark"] .ingredient-table td,
+:root[data-theme="dark"] .percentage-status {
+    color: #F0F3EE;
+}
+
+:root[data-theme="dark"] .batch-field input,
+:root[data-theme="dark"] .ingredient-table input,
+:root[data-theme="dark"] .save-formulation-actions input {
+    background: #151C17;
+    color: #F0F3EE;
+    border-color: #3B4940;
+}
+
+:root[data-theme="dark"] .ingredient-table th {
+    background: #303C33;
+    color: #F0F3EE;
+}
+
+:root[data-theme="dark"] .ingredient-table td {
+    border-bottom-color: #3B4940;
+}
+
+:root[data-theme="dark"] .result-card {
+    background: #202923;
+    border-color: #3B4940;
+}
+
+:root[data-theme="dark"] .result-card p,
+:root[data-theme="dark"] .results-note {
+    color: #B3BEB5;
+}
+
+:root[data-theme="dark"] .result-card h3 {
+    color: #F0F3EE;
+}
+
+:root[data-theme="dark"] .save-formulation-actions label {
+    color: #F0F3EE;
+}
+
+
+/* My Formulations dark mode */
+:root[data-theme="dark"] .formulation-card {
+    background: #202923;
+    border-color: #3B4940;
+    box-shadow: 0 5px 18px rgba(0, 0, 0, 0.15);
+}
+
+:root[data-theme="dark"] .formulation-card h3,
+:root[data-theme="dark"] .formulation-card h4 {
+    color: #F0F3EE;
+}
+
+:root[data-theme="dark"] .formulation-date {
+    color: #B3BEB5;
+}
+
+:root[data-theme="dark"] .formulation-details {
+    background: #303C33;
+}
+
+:root[data-theme="dark"] .formulation-details p {
+    color: #E3E9E2;
+}
+
+:root[data-theme="dark"] .formulation-details p:last-child {
+    color: #E6BD69;
+    border-color: #465447;
+}
+
+:root[data-theme="dark"] .formulation-ingredients li {
+    background: #26332A;
+    border-color: #3B4940;
+    color: #E3E9E2;
+}
+
+
+/* Calculation History dark mode */
+:root[data-theme="dark"] .history-ingredients-table {
+    background: #202923;
+    color: #F0F3EE;
+}
+
+:root[data-theme="dark"] .history-ingredients-table th {
+    background: #303C33;
+    color: #F0F3EE;
+    border-color: #3B4940;
+}
+
+:root[data-theme="dark"] .history-ingredients-table td {
+    color: #F0F3EE;
+    border-color: #3B4940;
+}
+
+:root[data-theme="dark"] .history-ingredients-table tbody tr:nth-child(even) {
+    background: #26332A;
+}
+
+:root[data-theme="dark"] .history-ingredients-table tbody tr:hover {
+    background: #354638;
+}
+
+:root[data-theme="dark"] .swal2-popup {
+    background: #202923;
+    color: #F0F3EE;
+}
+
+:root[data-theme="dark"] .swal2-title,
+:root[data-theme="dark"] .swal2-html-container {
+    color: #F0F3EE;
+}
+
+
+/* Calculation History search and filter styling */
+.history-search,
+.history-filters input,
+.history-filters select {
+    width: 100%;
+    padding: 12px 14px;
+    border: 1px solid #E4E8E2;
+    border-radius: 8px;
+    background: #FFFFFF;
+    color: #183D2B;
+    font: inherit;
+    outline: none;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.history-search:focus,
+.history-filters input:focus,
+.history-filters select:focus {
+    border-color: #183D2B;
+    box-shadow: 0 0 0 3px rgba(24, 61, 43, 0.12);
+}
+
+.history-search::placeholder,
+.history-filters input::placeholder {
+    color: #7B857D;
+}
+
+:root[data-theme="dark"] .history-search,
+:root[data-theme="dark"] .history-filters input,
+:root[data-theme="dark"] .history-filters select {
+    background: #202923;
+    color: #F0F3EE;
+    border-color: #3B4940;
+}
+
+:root[data-theme="dark"] .history-search::placeholder,
+:root[data-theme="dark"] .history-filters input::placeholder {
+    color: #B3BEB5;
+}
+
+:root[data-theme="dark"] .history-search:focus,
+:root[data-theme="dark"] .history-filters input:focus,
+:root[data-theme="dark"] .history-filters select:focus {
+    border-color: #D9A441;
+    box-shadow: 0 0 0 3px rgba(217, 164, 65, 0.15);
+}
+
+
+
+
+
+/* Calculation History - Clear Filters button */
+.clear-history-filters{
+    padding: 12px 18px;
+    border: 1px solid #183D2B;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    border-radius: 8px;
+    background: #183D2B;
+    color: #FFFFFF;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.2s ease, border-color 0.2s ease,
+                transform 0.2s ease;
+}
+
+.clear-history-filters:hover {
+    background: #24543C;
+    border-color: #24543C;
+    transform: translateY(-1px);
+}
+
+.clear-history-filters:focus-visible {
+    outline: 3px solid #D9A441;
+    outline-offset: 3px;
+}
+
+:root[data-theme="dark"] .clear-history-filters {
+    background: #D9A441;
+    color: #183D2B;
+    border-color: #D9A441;
+}
+
+:root[data-theme="dark"] .clear-history-filters:hover {
+    background: #E6BD69;
+    border-color: #E6BD69;
+}
